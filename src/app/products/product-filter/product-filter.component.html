@@ -1,0 +1,22 @@
+<div class="sticky-top">
+<div class="list-group">
+    <a 
+    class="list-group-item list-group-item-action"
+    routerLink="/products"
+    [queryParams] = "{ category : 'airline' }"
+    [class.active] = "!categoryFlag"
+    >
+    Airlines
+    </a>
+
+    <a 
+    class="list-group-item list-group-item-action"
+    routerLink="/products"
+    [queryParams] = "{ category : 'travel' }"
+    [class.active] = "categoryFlag"
+    >
+    Travel Agency
+    </a>
+    
+</div>
+</div>

@@ -1,0 +1,14 @@
+      <div  class="card" style="height: auto; width: 300px;">
+            <img [src]="prod.imageUrl" class="card-img-top" style="height: 210px" *ngIf="prod.imageUrl">
+            <div class="card-body">
+            
+              <h4 class="card-title">{{prod.CARR_NAME }}</h4>
+              <p class="card-text">{{prod.CARR_CODE }}</p>   
+              <p class="card-text">{{prod.ADDRESS }}</p> 
+              <p class="card-text">{{prod.CITY }}</p>  
+              <p class="card-text">{{prod.STATE }}</p>    
+            </div>
+            <div class="card-body-footer">
+                <a routerLink="" *ngIf='showactions' class="btn btn-primary btn-block">Add to Cart </a>  
+            </div>
+      </div>

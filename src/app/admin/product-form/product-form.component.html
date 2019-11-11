@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-6">
+      <form #f="ngForm" (ngSubmit)="save(f.value)" >
+          <div class="form-group">
+            <label for="CARR_CODE" >Carrier Code</label>
+            <input id ="CARR_CODE" #CARR_CODE="ngModel" [(ngModel)]="prod.CARR_CODE" name="CARR_CODE" type="text" class="form-control" required>
+            <div *ngIf="CARR_CODE.touched && CARR_CODE.invalid" class="alert alert-danger"> Carrier code is required </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="CARR_ALPHA_CODE">Carrier Alpha Code</label>
+            <input #CARR_ALPHA_CODE="ngModel" [(ngModel)]="prod.CARR_ALPHA_CODE" name="CARR_ALPHA_CODE" id ="CARR_ALPHA_CODE" class="form-control" required>
+            <div *ngIf="CARR_ALPHA_CODE.touched && CARR_ALPHA_CODE.invalid" class="alert alert-danger"> Carrier Alpha Code is required  </div>      
+          </div> 
+
+          <div class="form-group">
+            <label for="CARR_NAME">Carrier Name</label>
+            <input #CARR_NAME="ngModel" [(ngModel)]="prod.CARR_NAME" name="CARR_NAME" id ="CARR_NAME" class="form-control" required>
+            <div *ngIf="CARR_NAME.touched && CARR_NAME.invalid" class="alert alert-danger"> Carrier Name is required  </div>      
+          </div> 
+
+          <div class="form-group">
+            <label for="ADDRESS">Address</label>
+            <input #ADDRESS="ngModel" [(ngModel)]="prod.ADDRESS" name="ADDRESS" id ="ADDRESS" class="form-control" required>
+            <div *ngIf="ADDRESS.touched && ADDRESS.invalid" class="alert alert-danger"> Address is required  </div>      
+          </div> 
+
+          <div class="form-group">
+            <label for="CITY">City</label>
+            <input #CITY="ngModel" [(ngModel)]="prod.CITY" name="CITY" id ="CITY" class="form-control" required>
+            <div *ngIf="CITY.touched && CITY.invalid" class="alert alert-danger"> City is required  </div>      
+          </div> 
+
+          <div class="form-group">
+            <label for="STATE">State</label>
+            <input #STATE="ngModel" [(ngModel)]="prod.STATE" name="STATE" id ="STATE" class="form-control">   
+          </div> 
+
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input #imageUrl="ngModel" [(ngModel)]="prod.imageUrl" name="imageUrl" id ="imageUrl" class="form-control" required>   
+            <div *ngIf="imageUrl.touched && imageUrl.invalid" class="alert alert-danger"> Image URL is required  </div> 
+          </div> 
+
+          <button class="btn btn-primary">Save</button> &nbsp;
+          <button type="button" class=  "btn btn-danger" (click)="delete()">Delete</button>
+        </form>
+  </div>
+  <div class="col-md-6">
+      <div *ngIf="prod.CARR_CODE" class="card"  style="width: 18rem;">
+          <img [src]="prod.imageUrl" class="card-img-top" *ngIf="prod.imageUrl">
+          <div class="card-body">
+            <h4 class="card-title">{{ prod.CARR_NAME }}</h4>
+            <p>Carrier Code : {{ prod.CARR_CODE }} </p>  
+          </div>
+      </div>
+      
+  </div>
+</div>

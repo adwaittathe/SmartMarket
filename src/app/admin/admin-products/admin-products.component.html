@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-md-6">
+            <h4 class="text-muted">Travel Agencies</h4>  
+            <p>
+            <button class="btn btn-primary" routerLink="/admin/new-agency">Add new agency
+            </button>
+            </p>
+            <mat-form-field>
+                <input matInput (keyup)="travelFilter($event.target.value)" placeholder="Search..."> 
+            </mat-form-field>
+            
+            <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="travelData" matSort >
+                <ng-container matColumnDef="AGENCY_NBR">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> AGENCY NBR </th>
+                    <td mat-cell *matCellDef="let element"> {{element.AGENCY_NBR}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="BUSINESS_NAME">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.BUSINESS_NAME }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="CITY">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CITY }} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element"> 
+                        <a [routerLink]="['/admin/products', element.id]">Edit</a>
+                         </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="agencyColumn"></tr>
+                <tr mat-row *matRowDef="let row; columns: agencyColumn;"></tr>
+            </table>
+            <mat-paginator #travelPaginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+            </div>   
+    </div>
+    <div class="col-md-6">
+            <h4 class="text-muted">Airlines</h4>  
+            <p>
+            <button class="btn btn-primary" routerLink="/admin/new-product">Add new airlines
+            </button>
+            </p>
+            <mat-form-field>
+                <input matInput (keyup)="airlinesFilter($event.target.value)" placeholder="Search..."> 
+            </mat-form-field>
+            
+            <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="airlinesData" matSort >
+                <ng-container matColumnDef="CARR_CODE">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Carrier Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.CARR_CODE}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="CARR_NAME">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Carrier Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CARR_NAME}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="CITY">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CITY}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element"> 
+                        <a [routerLink]="['/admin/products', element.id]">Edit</a>
+                         </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedAirlineColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedAirlineColumns;"></tr>
+            </table>
+            <mat-paginator #airlinePaginator [pageSizeOptions]="[10, 20 , 30]" showFirstLastButtons></mat-paginator>
+            </div>   
+    </div>
+</div>
+
+<!--
+<table class="table table-striped">
+        <thead>
+            <tr>
+                 <th scope="col">Title</th>
+                 <th scope="col">Price</th>
+                 <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of filteredProductList">
+                 <td> {{p.title}} </td>
+                 <td> {{p.price | currency:"USD"}} </td>
+                 <td> <a [routerLink]="['/admin/products/', p.key]">Edit</a>           
+                </td>
+            </tr>
+        </tbody>
+    </table>
+-->
+

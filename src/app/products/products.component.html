@@ -1,0 +1,31 @@
+
+<div class="row">
+<div class="col-md-3">
+<app-product-filter [category]='category' [categoryFlag]='categoryFlag'></app-product-filter>
+</div>
+<div class="col">
+    <mat-grid-list cols="2" rowHeight="370px">
+        <mat-grid-tile *ngFor="let prod of filteredProductList">
+                <div *ngIf="prod.CARR_NAME" class="card"  style="width: 18rem;">
+                        <img [src]="prod.imageUrl" class="card-img-top" *ngIf="prod.imageUrl">
+                        <div class="card-body">
+                          <h4 class="card-title">{{ prod.CARR_NAME }}</h4>
+                          <p>Carrier Code : {{ prod.CARR_CODE }} </p>  
+                        </div>
+                </div>
+
+                <div *ngIf="prod.BUSINESS_NAME" class="card"  style="width: 18rem;">
+                        <img [src]="prod.imageUrl" class="card-img-top" *ngIf="prod.imageUrl">
+                        <div class="card-body">
+                        <h4 class="card-title">{{ prod.BUSINESS_NAME }}</h4>
+                        <p>Carrier Code : {{ prod.AGENCY_NBR }} </p>  
+                 
+                        </div>
+                </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>
+</div>
+
+   
+

@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #travelF="ngForm" (ngSubmit)="saveAgency(travelF.value)" >
+      <div class="form-group">
+        <label for="AGENCY_NBR">AGENCY NBR</label>
+        <input id="AGENCY_NBR" name="AGENCY_NBR" type="text" class="form-control" #AGENCY_NBR="ngModel" [(ngModel)]="agency.AGENCY_NBR" required>
+        <div *ngIf="AGENCY_NBR.touched && AGENCY_NBR.invalid" class="alert alert-danger"> AGENCY NBR is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="BUSINESS_NAME">BUSINESS NAME</label>
+        <input id="BUSINESS_NAME" name="BUSINESS_NAME" type="text" class="form-control" #BUSINESS_NAME="ngModel" [(ngModel)]="agency.BUSINESS_NAME" required>
+        <div *ngIf="BUSINESS_NAME.touched && BUSINESS_NAME.invalid" class="alert alert-danger"> BUSINESS NAME is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="HOME_AGENCY_NUMBER">HOME AGENCY NUMBER</label>
+        <input id="HOME_AGENCY_NUMBER" name="HOME_AGENCY_NUMBER" type="text" class="form-control" #HOME_AGENCY_NUMBER="ngModel" [(ngModel)]="agency.HOME_AGENCY_NUMBER" required>
+        <div *ngIf="HOME_AGENCY_NUMBER.touched && HOME_AGENCY_NUMBER.invalid" class="alert alert-danger"> HOME AGENCY NUMBER is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="BRANCH_AGENCY_NUMBER">BRANCH AGENCY NUMBER</label>
+        <input id="BRANCH_AGENCY_NUMBER" name="BRANCH_AGENCY_NUMBER" type="text" class="form-control" #BRANCH_AGENCY_NUMBER="ngModel" [(ngModel)]="agency.BRANCH_AGENCY_NUMBER" required>
+        <div *ngIf="BRANCH_AGENCY_NUMBER.touched && BRANCH_AGENCY_NUMBER.invalid" class="alert alert-danger"> BRANCH AGENCY NUMBER is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ADDR_LINE_1">ADDRESS LINE 1</label>
+        <input id="ADDR_LINE_1" name="ADDR_LINE_1" type="text" class="form-control" #ADDR_LINE_1="ngModel" [(ngModel)]="agency.ADDR_LINE_1" required>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="ADDR_LINE_2">ADDRESS LINE 2</label>
+        <input id="ADDR_LINE_2" name="ADDR_LINE_2" type="text" class="form-control" #ADDR_LINE_2="ngModel" [(ngModel)]="agency.ADDR_LINE_2" required>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="CITY">CITY </label>
+        <input id="CITY" name="CITY" type="text" class="form-control" #CITY="ngModel" [(ngModel)]="agency.CITY" required>
+        <div *ngIf="CITY.touched && CITY.invalid" class="alert alert-danger"> CITY is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="STATE">STATE</label>
+        <input id="STATE" name="STATE" type="text" class="form-control" #STATE="ngModel" [(ngModel)]="agency.STATE" required>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="ZIP">ZIP </label>
+        <input id="ZIP" name="ZIP" type="text" class="form-control" #ZIP="ngModel" [(ngModel)]="agency.ZIP" required>
+        <div *ngIf="ZIP.touched && ZIP.invalid" class="alert alert-danger"> ZIP is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="EMAIL">EMAIL </label>
+        <input id="EMAIL" name="EMAIL" type="text" class="form-control" #EMAIL="ngModel" [(ngModel)]="agency.EMAIL" required>
+        <div *ngIf="EMAIL.touched && EMAIL.invalid" class="alert alert-danger"> EMAIL is required </div>
+      </div>
+
+      <div class="form-group">
+        <label for="COMPANY_LEGAL_NAME">COMPANY LEGAL NAME</label>
+        <input id="COMPANY_LEGAL_NAME" name="COMPANY_LEGAL_NAME" type="text" class="form-control" #COMPANY_LEGAL_NAME="ngModel" [(ngModel)]="agency.COMPANY_LEGAL_NAME" required>
+        <div *ngIf="COMPANY_LEGAL_NAME.touched && COMPANY_LEGAL_NAME.invalid" class="alert alert-danger"> COMPANY LEGAL NAME is required </div>
+      </div>
+
+      <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input #imageUrl="ngModel" [(ngModel)]="agency.imageUrl" name="imageUrl" id ="imageUrl" class="form-control" required>   
+          <div *ngIf="imageUrl.touched && imageUrl.invalid" class="alert alert-danger"> Image URL is required  </div> 
+      </div> 
+
+
+      <button class="btn btn-primary">Save</button> &nbsp;
+      <button type="button" class=  "btn btn-danger" (click)="delete()">Delete</button>
+      <br>
+      <br>
+
+    </form>
+  </div>
+
+  <div class="col-md-6">
+      <div class="sticky-top">
+      <div class="card"  style="width: 18rem;">
+          <img [src]="agency.imageUrl" class="card-img-top" *ngIf="agency.imageUrl">
+          <div class="card-body">
+            <h4 class="card-title">{{ agency.BUSINESS_NAME }}</h4>
+            <p>Carrier Code : {{ agency.AGENCY_NBR }} </p>  
+          </div>
+      </div>
+  </div>
+</div>
+</div>
